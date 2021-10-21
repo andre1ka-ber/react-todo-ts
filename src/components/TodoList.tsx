@@ -1,5 +1,5 @@
 import React from "react";
-import {ITodo} from "../interfaces/Todo";
+import { ITodo } from "../interfaces/Todo";
 import TodoItem from "./TodoItem";
 
 interface ITodoListProps {
@@ -20,12 +20,10 @@ const TodoList: React.FC<ITodoListProps> = ({ todos, toggleTodo, deleteTodo }) =
     }
 
     return (
-        <>
-            <h3 className={"label-md"}>Список задач</h3>
-            <div className={"todo-list-wrapper"}>
-              {renderTodos()}
-            </div>
-        </>
+      <div className={"todo-list-wrapper"}>
+        <h3 className={"label-md"}>Список задач</h3>
+        {renderTodos()}
+      </div>
     )
 }
 

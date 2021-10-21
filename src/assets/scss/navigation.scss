@@ -1,10 +1,32 @@
 .navigation {
     @apply w-14 h-full bg-gray-100 rounded-md shadow-md;
     @apply flex flex-col;
+    @screen sm {
+        @apply w-64
+    }
 }
 .navigation-item {
-    @apply text-gray-400
+    @apply text-gray-400 grid py-4 pr-6 pl-3;
+    grid-template-columns: 2rem auto;
+}
+.navigation-item:hover {
+    @apply bg-gray-300 text-yellow-500 cursor-pointer;
+}
+.navigation-item-icon {
+    @apply flex place-content-center items-center;
 }
 .navigation-item-title {
     @apply hidden;
+    @screen sm {
+        @apply flex;
+    }
+}
+.about-me-item {
+    @apply mt-auto text-sm;
+}
+.about-me-item:hover {
+    @apply bg-gray-100;
+}
+.about-me-item .navigation-item-title {
+    @apply text-center;
 }

@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import "./assets/tailwind.css";
 import "./assets/scss/app.scss";
 import NavigationList from "./components/NavigationList";
 import TodoForm from './components/TodoForm'
 import TodoList from "./components/TodoList";
-import {ITodo} from "./interfaces/Todo";
+import { ITodo } from "./interfaces/Todo";
 
 const App: React.FC = () => {
     const [todos, setTodos] = useState<ITodo[]>([]);
@@ -40,10 +40,8 @@ const App: React.FC = () => {
     return (
       <div className={"main"}>
         <NavigationList />
-        <div className={"flex flex-col px-16"}>
+        <div className={"todo-wrapper"}>
             <TodoForm add={addTodo}/>
-        </div>
-        <div>
             <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
         </div>
       </div>

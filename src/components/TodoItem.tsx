@@ -17,12 +17,10 @@ const TodoItem: React.FC<ITodoItemProps> = ({todo, toggleTodo, deleteTodo}) => {
   };
 
   return (
-    <>
-      <div className={classes()}>
-        <input type="checkbox" onChange={() => toggleTodo(todo.id)} checked={todo.completed} />
-        <h5>{todo.title}</h5>
-      </div>
-    </>
+    <div className={classes()}>
+      <input type="checkbox" onChange={() => toggleTodo(todo.id)} checked={todo.completed} />
+      <h5>{todo.title}</h5>
+    </div>
   )
 }
 
