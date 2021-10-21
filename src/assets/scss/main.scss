@@ -1,0 +1,8 @@
+.main {
+  @apply bg-gray-300 p-4 flex;
+  height: 100vh;
+}
+
+.label-md {
+  @apply text-gray-700 text-xl pb-2;
+}

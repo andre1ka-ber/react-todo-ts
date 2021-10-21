@@ -1,0 +1,10 @@
+.navigation {
+    @apply w-14 h-full bg-gray-100 rounded-md shadow-md;
+    @apply flex flex-col;
+}
+.navigation-item {
+    @apply text-gray-400
+}
+.navigation-item-title {
+    @apply hidden;
+}

@@ -1,0 +1,38 @@
+.todo-input-wrapper {
+  @apply flex flex-col;
+}
+.todo-input-form {
+  @apply flex flex-col rounded-md bg-gray-100 px-6 py-4 shadow-md;
+  width: 40vw;
+}
+.todo-input-form input {
+  @apply rounded-sm bg-gray-200 shadow-sm h-12 p-2;
+}
+.todo-input-form input::placeholder {
+  @apply bg-gray-200;
+}
+.todo-input-form button {
+  @apply bg-yellow-500 transition-all duration-200 p-2 rounded-sm shadow-sm mt-4 w-full;
+}
+.todo-input-form button:hover {
+  @apply bg-yellow-600;
+}
+.todo-list-wrapper {
+  @apply flex flex-col;
+  min-height: 80vh;
+  width: 40vw;
+}
+.todo-list-item {
+  @apply bg-gray-100 rounded-md shadow-md px-6 py-4 w-full grid items-center mb-4;
+  min-height: 4rem;
+  grid-template-columns: 2rem auto;
+}
+.todo-list-item:hover {
+  @apply bg-yellow-500 transition-all duration-200;
+}
+.todo-list-item.completed {
+  @apply bg-gray-400;
+}
+.todo-list-item.completed h5 {
+  @apply line-through;
+}
