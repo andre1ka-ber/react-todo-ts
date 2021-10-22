@@ -30,3 +30,6 @@
 .about-me-item .navigation-item-title {
     @apply text-center;
 }
+.navigation-item.active {
+    @apply text-yellow-500;
+}

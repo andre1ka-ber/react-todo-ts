@@ -1,33 +1,33 @@
 import React from "react";
-
-const navigationItems = [
-    {
-        icon: "fas fa-home",
-        title: "Главная"
-    },
-    {
-        icon: "fa fa-home",
-        title: "Список завершенных"
-    },
-    {
-        icon: "fab fa-facebook",
-        title: "Корзина"
-    },
-];
+import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { navigationLinks } from "../constants/navigationLinks";
 
 const NavigationList: React.FC = () => {
+    const location = useLocation();
+
+    const classes = (path: string): string => {
+        const array = ['navigation-item'];
+        if (location.pathname === path) {
+            array.push("active")
+        }
+        return array.join(" ")
+    }
+
     return (
         <div className={"navigation"}>
-            {navigationItems.map((item, index) => {
+            {navigationLinks.map((item, index) => {
                 return (
-                  <div className={"navigation-item"} key={item.icon}>
-                      <div className={"navigation-item-icon"}>
-                          <i className={item.icon}></i>
+                  <NavLink to={item.path} key={item.icon}>
+                      <div className={classes(item.path)} >
+                          <div className={"navigation-item-icon"}>
+                              <i className={item.icon}></i>
+                          </div>
+                          <div className={"navigation-item-title"}>
+                              <h4>{ item.title }</h4>
+                          </div>
                       </div>
-                      <div className={"navigation-item-title"}>
-                          <h4>{ item.title }</h4>
-                      </div>
-                  </div>
+                  </NavLink>
                 )
             })}
             <div className={"navigation-item about-me-item"}>
