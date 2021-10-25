@@ -1547,7 +1547,7 @@ mathematics:
     - not-equal
     - percentage
     - plus
-    - square-root-alt
+    - square-rootReducer-alt
     - subscript
     - superscript
     - times

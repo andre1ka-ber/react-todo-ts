@@ -27,17 +27,20 @@
   @apply bg-yellow-600;
 }
 .todo-list-wrapper {
-  @apply flex flex-col w-full overflow-y-auto;
-  @apply scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-yellow-500 scrollbar-thumb-rounded-full scrollbar-track-rounded-full;
-  height: 90vh;
+  @apply flex flex-col w-full;
   @screen lg {
     @apply pl-4 w-2/3;
   }
 }
+.todo-list {
+  @apply overflow-y-auto;
+  @apply scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-yellow-500 scrollbar-thumb-rounded-full scrollbar-track-rounded-full;
+  height: 90vh;
+}
 .todo-list-item {
   @apply bg-gray-100 rounded-md shadow-md px-6 py-4 w-full grid items-center mb-4 overflow-hidden ;
   min-height: 4rem;
-  grid-template-columns: 2rem auto;
+  grid-template-columns: 2rem auto auto;
 }
 .todo-list-item:hover {
   @apply bg-yellow-500 transition-all duration-200;
@@ -47,4 +50,8 @@
 }
 .todo-list-item.completed h5 {
   @apply line-through;
+}
+.todo-list-item-button {
+  @apply w-8 p-1 rounded shadow-sm transition-all duration-300 bg-gray-100 ml-auto;
+  @apply text-red-500 hover:text-white hover:bg-red-500;
 }

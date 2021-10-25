@@ -1,5 +1,14 @@
-import React, { useEffect } from "react";
-import {ITodo} from "../interfaces/Todo";
+import React from "react";
+import {connect} from "react-redux";
+import {deleteTodo, toggleTodo} from "../redux/actionCreators/todosActions";
+import {ITodo} from "../interfaces/todo";
+
+declare var confirm: (question: string) => boolean;
+
+const mapDispatchToProps = {
+  toggleTodo,
+  deleteTodo
+}
 
 interface ITodoItemProps {
   todo: ITodo;
@@ -8,20 +17,21 @@ interface ITodoItemProps {
 }
 
 const TodoItem: React.FC<ITodoItemProps> = ({todo, toggleTodo, deleteTodo}) => {
-  const classes = (): string => {
-    const array = ['todo-list-item'];
-    if (todo.completed) {
-      array.push('completed')
+  const clickHandler = () => {
+    if (confirm("Вы уверены?")) {
+      deleteTodo(todo.id)
     }
-    return array.join(" ");
-  };
+  }
 
   return (
-    <div className={classes()}>
-      <input type="checkbox" onChange={() => toggleTodo(todo.id)} checked={todo.completed} />
+    <div className={`todo-list-item ${todo.completed ? "completed" : "" }`}>
+      <input type="checkbox"  checked={todo.completed} onChange={() => toggleTodo(todo.id)} />
       <h5>{todo.title}</h5>
+      <button className={"todo-list-item-button"} onClick={clickHandler}>
+        <i className={"fas fa-times"}></i>
+      </button>
     </div>
   )
 }
 
-export default TodoItem;
+export default connect(null, mapDispatchToProps)(TodoItem);

@@ -1,30 +1,26 @@
 import React from "react";
-import { ITodo } from "../interfaces/Todo";
 import TodoItem from "./TodoItem";
+import { connect, ConnectedProps } from "react-redux";
+import { RootState } from "../redux/store";
 
-interface ITodoListProps {
-  todos: ITodo[];
-  toggleTodo(id: number): void;
-  deleteTodo(id: number): void;
-}
+const mapStateToProps = (state: RootState) => ({todos: state.todos.todos})
+const connector = connect(mapStateToProps)
 
-const TodoList: React.FC<ITodoListProps> = ({ todos, toggleTodo, deleteTodo }) => {
-    const renderTodos = () => {
-      if (todos.length === 0) {
-        return <h3 className={"label-md"}>Задач нет</h3>
-      } else {
-        return (
-          todos.map(todo => <TodoItem todo={todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo} key={todo.id} />)
-        )
-      }
-    }
+type PropsFromRedux = ConnectedProps<typeof connector>
+type TodoListProps = PropsFromRedux
 
-    return (
-      <div className={"todo-list-wrapper"}>
-        <h3 className={"label-md"}>Список задач</h3>
-        {renderTodos()}
-      </div>
-    )
-}
+const TodoList: React.FC<TodoListProps> = ({ todos }) => (
+  <div className={"todo-list-wrapper"}>
+    <h3 className={"label-md"}>Список задач</h3>
+    <div className={"todo-list"}>
+      { todos.length === 0
+        ? <h4 className={"label-md"}>Задач не добавлено</h4>
+        : ""}
+      {todos.map(todo =>
+        <TodoItem todo={todo} key={todo.id} />
+      )}
+    </div>
+  </div>
+)
 
-export default TodoList;
+export default connector(TodoList);
