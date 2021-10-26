@@ -2,7 +2,7 @@ import {ADD_TODO, COMPLETE_TODO, DELETE_TODO, MOVE_TODO_TO_MAIN} from "../action
 import {Reducer} from "redux";
 import {ITodo} from "../../interfaces/todo";
 
-type TodosState = {
+interface TodosState {
   todos: ITodo[],
   completed: ITodo[],
   trash: ITodo[]
@@ -14,7 +14,7 @@ const initialState: TodosState = {
   trash: []
 }
 
-export const todos: Reducer<TodosState> = (state = initialState, action) => {
+export const todosReducer: Reducer<TodosState> = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO: {
       return {...state, todos: [...state.todos, action.payload]}

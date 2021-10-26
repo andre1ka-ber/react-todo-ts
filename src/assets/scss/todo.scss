@@ -8,7 +8,7 @@
 .todo-input-wrapper {
   @apply flex flex-col mb-4;
   @screen lg {
-    @apply w-1/3;
+    @apply w-1/3 pr-4;
   }
 }
 .todo-input-form {
@@ -29,7 +29,7 @@
 .todo-list-wrapper {
   @apply flex flex-col w-full;
   @screen lg {
-    @apply pl-4 w-2/3;
+    @apply w-2/3;
   }
 }
 .todo-list {

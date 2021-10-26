@@ -14,4 +14,9 @@ export const navigationLinks = [
     title: "Корзина",
     path: "/trash"
   },
+  {
+    icon: "fas fa-sliders-h",
+    title: "Тестовые данные",
+    path: "/fetched"
+  }
 ];
