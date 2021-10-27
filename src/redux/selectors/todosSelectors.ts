@@ -1,4 +1,4 @@
-import {RootState} from "./store";
+import {RootState} from "../store";
 
 export const todosState = (state: RootState) => state.todos;
 export const activeTodoItems = (state: RootState) => todosState(state).todos

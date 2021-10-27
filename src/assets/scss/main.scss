@@ -1,12 +1,19 @@
 .main {
-  @apply bg-gray-300 p-4 flex;
+  @apply bg-gray-300 p-4 flex text-gray-800 font-bold transition-all duration-300;
+  @apply dark:bg-gray-900 dark:text-gray-300;
   height: 100vh;
 }
 .label-md {
   @apply text-gray-700 text-xl pb-2;
+  @apply dark:text-gray-300;
+}
+.block-background {
+  @apply bg-gray-100;
+  @apply dark:bg-gray-800;
 }
 .scrollbar-styles {
   @apply scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-yellow-500 scrollbar-thumb-rounded-full scrollbar-track-rounded-full;
+  //@apply dark:scrollbar-track-gray-700
 }
 .input-checkbox {
   @apply appearance-none h-6 w-6 border border-gray-300 rounded-md;
@@ -16,12 +23,14 @@
 }
 .input-select {
   @apply block px-3 h-10 w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:ring-0;
+  @apply dark:bg-gray-700;
 }
 .input-field {
   @apply flex flex-col mb-4;
 }
 input {
   @apply form-input bg-gray-100 rounded-md border-gray-300 border-transparent focus:ring-0;
+  @apply dark:bg-gray-700 dark:border-gray-600;
 }
 .spin-logo {
   animation: spin 10s linear infinite;

@@ -2,9 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { navigationLinks } from "../constants/navigationLinks";
+import {changeAppTheme} from "../redux/actionCreators/appActions";
+import {useDispatch} from "react-redux";
 
 const NavigationList: React.FC = () => {
     const location = useLocation();
+    const dispatcher = useDispatch();
 
     const classes = (path: string): string => {
         const array = ['navigation-item'];
@@ -12,6 +15,10 @@ const NavigationList: React.FC = () => {
             array.push("active")
         }
         return array.join(" ")
+    }
+
+    const changeTheme = () => {
+        dispatcher(changeAppTheme())
     }
 
     return (
@@ -30,6 +37,14 @@ const NavigationList: React.FC = () => {
                   </NavLink>
                 )
             })}
+            <div className={"navigation-item"} onClick={changeTheme}>
+                <div className={"navigation-item-icon"}>
+                    <i className={"fas fa-moon"}></i>
+                </div>
+                <div className={"navigation-item-title"}>
+                    Изменить тему
+                </div>
+            </div>
             <div className={"navigation-item about-me-item"}>
                 <div className={"navigation-item-icon"}>
                     <img src={"logo192.png"} height={32} width={32} alt={"react-logo"} className={"spin-logo"}/>

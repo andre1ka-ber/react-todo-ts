@@ -34,5 +34,6 @@ export const todosReducer = createReducer(initialState, (builder) => {
     })
     .addCase(deleteTodo, (state, action) => {
       state.todos.filter(todo => todo.id !== action.payload.id)
+      state.completed.filter(todo => todo.id !== action.payload.id)
     })
 })

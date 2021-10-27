@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Switch, Route } from "react-router-dom";
 import './App.css';
 import "./assets/tailwind.css";
@@ -7,8 +7,21 @@ import NavigationList from "./components/NavigationList";
 import Main from "./views/Main";
 import FetchedTodos from "./views/FetchedTodos";
 import CompletedTodos from "./views/CompletedTodos";
+import {useSelector} from "react-redux";
+import {appTheme} from "./redux/selectors/appSelectors";
 
 const App: React.FC = () => {
+    const theme = useSelector(appTheme)
+
+    useEffect(() => {
+      const rootHtmlElement = document.querySelector("html") as HTMLElement;
+      if (theme === "light") {
+        rootHtmlElement.classList.add("dark")
+      } else {
+        rootHtmlElement.classList.remove("dark")
+      }
+    }, [theme])
+
     return (
       <div className={"main"}>
         <NavigationList />

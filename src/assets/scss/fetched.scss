@@ -2,7 +2,7 @@
   @apply w-full;
 }
 .fetched-item {
-  @apply flex flex-col p-4 rounded-md shadow-md mb-4 bg-gray-100;
+  @apply flex flex-col p-4 rounded-md shadow-md mb-4 block-background;
 }
 .fetched-item span {
   @apply text-base text-right;

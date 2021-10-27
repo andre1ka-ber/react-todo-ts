@@ -1,7 +1,7 @@
 import React from "react";
 import {useSelector} from "react-redux";
 import TodoItem from "../components/TodoItem";
-import {completedTodoItems} from "../redux/selectors";
+import {completedTodoItems} from "../redux/selectors/todosSelectors";
 
 const CompletedTodos: React.FC = () => {
   const completedTodos = useSelector(completedTodoItems)

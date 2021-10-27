@@ -1,6 +1,6 @@
 import React from "react";
 import {useSelector} from "react-redux";
-import {fetchedTodosItems, fetchingLoading} from "../redux/selectors";
+import {fetchedTodosItems, fetchingLoading} from "../redux/selectors/todosSelectors";
 import TodoStatus from "../components/TodoStatus";
 import FetchTodoForm from "../components/FetchTodoForm";
 import Loader from "../components/Loader";

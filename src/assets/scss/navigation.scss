@@ -1,5 +1,5 @@
 .navigation {
-    @apply w-14 h-full bg-gray-100 rounded-md shadow-md;
+    @apply w-14 h-full block-background rounded-md shadow-md;
     @apply flex flex-col;
     @screen sm {
         @apply w-64

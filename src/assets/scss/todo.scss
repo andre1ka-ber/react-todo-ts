@@ -11,13 +11,14 @@
   }
 }
 .todo-input-form {
-  @apply flex flex-col rounded-md bg-gray-100 px-6 py-4 shadow-md w-full;
+  @apply flex flex-col rounded-md block-background px-6 py-4 shadow-md w-full;
 }
 .todo-input-form input {
-  @apply rounded-md bg-gray-200 shadow-sm h-12 p-2;
+  @apply rounded-md shadow-sm h-12 p-2;
 }
 .todo-input-form input::placeholder {
   @apply bg-gray-200;
+  @apply dark:bg-gray-700;
 }
 .todo-input-form button {
   @apply bg-yellow-500 transition-all duration-200 p-2 rounded-sm shadow-sm mt-4 w-full;
@@ -36,7 +37,7 @@
   height: 90vh;
 }
 .todo-list-item {
-  @apply bg-gray-100 rounded-md shadow-md px-6 py-4 w-full grid items-center mb-4 overflow-hidden ;
+  @apply block-background rounded-md shadow-md px-6 py-4 w-full grid items-center mb-4 overflow-hidden ;
   min-height: 4rem;
   grid-template-columns: 2rem auto auto;
 }
@@ -53,7 +54,7 @@
   }
 }
 .todo-list-item.completed {
-  @apply bg-gray-400;
+  @apply bg-gray-400 dark:bg-gray-600;
 }
 .todo-list-item.completed h5 {
   @apply line-through;
