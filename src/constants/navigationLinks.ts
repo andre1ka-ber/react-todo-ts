@@ -10,12 +10,7 @@ export const navigationLinks = [
     path: "/completed"
   },
   {
-    icon: "fas fa-trash-alt",
-    title: "Корзина",
-    path: "/trash"
-  },
-  {
-    icon: "fas fa-sliders-h",
+    icon: "fas fa-layer-group",
     title: "Тестовые данные",
     path: "/fetched"
   }

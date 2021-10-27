@@ -55,3 +55,21 @@
   @apply w-8 p-1 rounded shadow-sm transition-all duration-300 bg-gray-100 ml-auto;
   @apply text-red-500 hover:text-white hover:bg-red-500;
 }
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}

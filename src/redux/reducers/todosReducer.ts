@@ -1,53 +1,38 @@
-import {ADD_TODO, COMPLETE_TODO, DELETE_TODO, MOVE_TODO_TO_MAIN} from "../actionTypes";
-import {Reducer} from "redux";
-import {ITodo} from "../../interfaces/todo";
-
-interface TodosState {
-  todos: ITodo[],
-  completed: ITodo[],
-  trash: ITodo[]
-}
+import {TodosState} from "../../interfaces/todo";
+import {createReducer} from "@reduxjs/toolkit";
+import {addTodo, completeTodo, deleteTodo, returnCompletedTodo} from "../actionCreators/todosActions";
 
 const initialState: TodosState = {
   todos: [],
   completed: [],
-  trash: []
 }
 
-export const todosReducer: Reducer<TodosState> = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_TODO: {
-      return {...state, todos: [...state.todos, action.payload]}
-    }
-    case COMPLETE_TODO: {
-      const completedTodos = [...state.completed];
-      const mainTodos = state.todos.filter(item => {
-        if (item.id === action.payload.id) {
-          item.completed = true;
-          completedTodos.push({...item})
+export const todosReducer = createReducer(initialState, (builder) => {
+  builder
+    .addCase(addTodo, (state, action) => {
+      state.todos.push(action.payload)
+    })
+    .addCase(completeTodo, (state, action) => {
+      state.todos = state.todos.filter(todo => {
+        if (todo.id === action.payload.id) {
+          todo.completed = true
+          state.completed.push(todo);
           return false
         }
-        return true
+        return true;
       })
-      return {...state, todos: mainTodos, completed: completedTodos}
-    }
-    case MOVE_TODO_TO_MAIN: {
-      const mainTodos = [...state.todos];
-      const completedTodos = state.completed.filter(item => {
-        if (item.id === action.payload.id) {
-          item.completed = false;
-          mainTodos.push({...item})
+    })
+    .addCase(returnCompletedTodo, (state, action) => {
+      state.completed = state.completed.filter(todo => {
+        if (todo.id === action.payload.id) {
+          todo.completed = true
+          state.todos.push(todo);
           return false
         }
-        return true
+        return true;
       })
-      return {...state, todos: mainTodos, completed: completedTodos}
-    }
-    case DELETE_TODO: {
-      const updatedTodos = state.todos.filter(item => item.id !== action.payload.id)
-      return { ...state, todos: updatedTodos }
-    }
-    default:
-      return state
-  }
-}
+    })
+    .addCase(deleteTodo, (state, action) => {
+      state.todos.filter(todo => todo.id !== action.payload.id)
+    })
+})

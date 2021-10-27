@@ -1,21 +1,16 @@
 import React from "react";
-import {RootState} from "../redux/store";
-import {connect, ConnectedProps} from "react-redux";
+import {useSelector} from "react-redux";
 import TodoItem from "../components/TodoItem";
+import {completedTodoItems} from "../redux/selectors";
 
-const mapStateToProps = (state: RootState) => {
-  return { completedTodos: state.todos.completed }
-}
-const connector = connect(mapStateToProps)
+const CompletedTodos: React.FC = () => {
+  const completedTodos = useSelector(completedTodoItems)
 
-type ReduxProps = ConnectedProps<typeof connector>
-
-const CompletedTodos: React.FC<ReduxProps> = ({ completedTodos }) => {
   return (
     <div className={"todo-list-wrapper"}>
       <h3 className={"label-md"}>Список завершённых задач</h3>
       <div className={"todo-list"}>
-        { completedTodos.length === 0
+        {completedTodos.length === 0
           ? <h4 className={"label-md"}>Задач не добавлено</h4>
           : ""}
         {completedTodos.map(todo =>
@@ -26,4 +21,4 @@ const CompletedTodos: React.FC<ReduxProps> = ({ completedTodos }) => {
   )
 }
 
-export default connector(CompletedTodos);
+export default CompletedTodos;

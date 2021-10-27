@@ -1,12 +1,9 @@
 import React, {useState} from "react"
-import {connect} from "react-redux";
-import {createTodo} from "../redux/actionCreators/todosActions";
+import {useDispatch} from "react-redux";
+import {addTodo} from "../redux/actionCreators/todosActions";
 
-interface ITodoFormProps {
-  createTodo(title: string): void;
-}
-
-const TodoForm: React.FC<ITodoFormProps> = ({createTodo}) => {
+const TodoForm: React.FC = () => {
+    const dispatcher = useDispatch();
     const [todoTitle, setTodoTitle] = useState("");
 
     const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,7 +14,7 @@ const TodoForm: React.FC<ITodoFormProps> = ({createTodo}) => {
       if (!todoTitle) {
         return;
       }
-      createTodo(todoTitle)
+      dispatcher(addTodo(todoTitle.trim()))
       setTodoTitle(() => "")
     }
 
@@ -32,8 +29,4 @@ const TodoForm: React.FC<ITodoFormProps> = ({createTodo}) => {
     )
 };
 
-const mapDispatchToProps = {
-  createTodo
-}
-
-export default connect(null, mapDispatchToProps)(TodoForm);
+export default TodoForm;

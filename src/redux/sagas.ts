@@ -1,9 +1,8 @@
 import { takeEvery, put, call } from "redux-saga/effects"
-import { FETCH_TODOS } from "./actionTypes";
-import {setFetchedTodos} from "./actionCreators/todosActions";
+import {fetchTodos, setFetchedTodos} from "./actionCreators/todosActions";
 
 export function* sagaWatcher() {
-  yield takeEvery(FETCH_TODOS, sagaFetchWorker);
+  yield takeEvery(fetchTodos.type, sagaFetchWorker);
 }
 
 function* sagaFetchWorker(): any {
