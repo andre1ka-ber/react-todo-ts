@@ -1,19 +1,38 @@
 .fetched-list-wrapper {
-  @apply flex flex-col;
+  @apply w-full;
 }
 .fetched-item {
-  @apply px-4 py-2 rounded-md shadow-md mb-4;
+  @apply flex flex-col p-4 rounded-md shadow-md mb-4 bg-gray-100;
 }
-.fetched-item small {
-  @apply text-gray-100 text-sm;
+.fetched-item span {
+  @apply text-base text-right;
 }
 .fetched-item button {
-  @apply mt-4 block text-center bg-gray-100 w-full border border-gray-400 rounded-md py-2;
-  @screen md {
-    @apply mt-0 ml-auto w-1/2;
-  }
+  @apply text-gray-600 text-2xl w-auto ml-auto flex items-center outline-none;
+}
+.fetched-item button span {
+  @apply text-base mr-2;
 }
 .fetched-items {
-  @apply overflow-y-auto;
-  height: 82.5vh;
+  @apply overflow-y-auto scrollbar-styles;
+  height: 47vh;
+  @screen md {
+    @apply flex flex-grow flex-col;
+    height: 82.5vh;
+  }
+}
+.fetched-item-content {
+  @apply grid grid-cols-2 place-content-between mb-2;
+}
+.fetch-form {
+  @apply grid gap-x-4 w-full;
+  @screen md {
+    @apply block w-1/3 mt-2;
+  }
+}
+.fetched-list {
+  @apply flex flex-col;
+  @screen md {
+    @apply flex-row;
+  }
 }

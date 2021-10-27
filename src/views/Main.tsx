@@ -4,10 +4,10 @@ import TodoList from "../components/TodoList";
 
 const Main: React.FC = () => {
   return (
-    <React.Fragment>
+    <>
       <TodoForm />
       <TodoList />
-    </React.Fragment>
+    </>
   )
 }
 

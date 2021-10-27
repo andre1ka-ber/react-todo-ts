@@ -6,3 +6,4 @@ export const completedTodoItems = (state: RootState) => todosState(state).comple
 
 export const fetchedTodosState = (state: RootState) => state.fetchedTodos
 export const fetchedTodosItems = (state: RootState) => fetchedTodosState(state).todos
+export const fetchingLoading = (state: RootState) => fetchedTodosState(state).loading

@@ -32,7 +32,7 @@ const NavigationList: React.FC = () => {
             })}
             <div className={"navigation-item about-me-item"}>
                 <div className={"navigation-item-icon"}>
-                    <img src={"logo192.png"} height={32} width={32} alt={"react-logo"} />
+                    <img src={"logo192.png"} height={32} width={32} alt={"react-logo"} className={"spin-logo"}/>
                 </div>
                 <div className={"navigation-item-title"}>
                     Made with ReactJS + TypeScript

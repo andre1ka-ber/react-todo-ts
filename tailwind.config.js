@@ -1,13 +1,16 @@
 module.exports = {
   purge: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {},
   },
   variants: {
-    scrollbar: ['rounded']
+    scrollbar: ['rounded'],
   },
   plugins: [
-      require("tailwind-scrollbar")
+      require("tailwind-scrollbar"),
+      require("@tailwindcss/forms")({
+        strategy: 'class'
+      })
   ],
 }
