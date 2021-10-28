@@ -1,60 +1,24 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import { navigationLinks } from "../constants/navigationLinks";
-import {changeAppTheme} from "../redux/actionCreators/appActions";
-import {useDispatch} from "react-redux";
+import { navigationLinks } from "../../constants/navigationLinks";
+import NavigationItem from "./NavigationItem";
+import ThemeChanger from "./ThemeChanger";
 
-const NavigationList: React.FC = () => {
-    const location = useLocation();
-    const dispatcher = useDispatch();
+const NavigationList: React.FC = () => (
+  <div className={"navigation"}>
+    {navigationLinks.map((item, index) => (
+      <NavLink to={item.path} key={item.icon}>
+        <NavigationItem icon={item.icon} title={item.title} path={item.path} />
+      </NavLink>
+    ))}
 
-    const classes = (path: string): string => {
-        const array = ['navigation-item'];
-        if (location.pathname === path) {
-            array.push("active")
-        }
-        return array.join(" ")
-    }
-
-    const changeTheme = () => {
-        dispatcher(changeAppTheme())
-    }
-
-    return (
-        <div className={"navigation"}>
-            {navigationLinks.map((item, index) => {
-                return (
-                  <NavLink to={item.path} key={item.icon}>
-                      <div className={classes(item.path)} >
-                          <div className={"navigation-item-icon"}>
-                              <i className={item.icon}></i>
-                          </div>
-                          <div className={"navigation-item-title"}>
-                              <h4>{ item.title }</h4>
-                          </div>
-                      </div>
-                  </NavLink>
-                )
-            })}
-            <div className={"navigation-item"} onClick={changeTheme}>
-                <div className={"navigation-item-icon"}>
-                    <i className={"fas fa-moon"}></i>
-                </div>
-                <div className={"navigation-item-title"}>
-                    Изменить тему
-                </div>
-            </div>
-            <div className={"navigation-item about-me-item"}>
-                <div className={"navigation-item-icon"}>
-                    <img src={"logo192.png"} height={32} width={32} alt={"react-logo"} className={"spin-logo"}/>
-                </div>
-                <div className={"navigation-item-title"}>
-                    Made with ReactJS + TypeScript
-                </div>
-            </div>
-        </div>
-    )
-}
+    <div className={"bottom-items"}>
+      <ThemeChanger />
+      <NavigationItem title={"Made with ReactJS + TypeScript"} classString={"about-me-item"}>
+        <img src={"logo192.png"} height={32} width={32} alt={"react-logo"} className={"spin-logo"}/>
+      </NavigationItem>
+    </div>
+  </div>
+)
 
 export default NavigationList;

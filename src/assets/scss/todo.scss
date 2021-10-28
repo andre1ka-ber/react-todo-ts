@@ -34,7 +34,10 @@
 }
 .todo-list {
   @apply overflow-y-auto scrollbar-styles;
-  height: 90vh;
+  height: 68vh;
+  @screen md {
+    height: 90vh;
+  }
 }
 .todo-list-item {
   @apply block-background rounded-md shadow-md px-6 py-4 w-full grid items-center mb-4 overflow-hidden ;

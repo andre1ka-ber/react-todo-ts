@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import './App.css';
 import "./assets/tailwind.css";
 import "./assets/scss/app.scss";
-import NavigationList from "./components/NavigationList";
+import NavigationList from "./components/Navigation/NavigationList";
 import Main from "./views/Main";
 import FetchedTodos from "./views/FetchedTodos";
 import CompletedTodos from "./views/CompletedTodos";

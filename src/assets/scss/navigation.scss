@@ -21,14 +21,17 @@
         @apply flex;
     }
 }
+.bottom-items {
+    @apply mt-auto;
+}
 .about-me-item {
-    @apply mt-auto text-sm;
+    @apply text-sm;
 }
 .about-me-item:hover {
     @apply bg-gray-100;
 }
-.about-me-item .navigation-item-title {
-    @apply text-center;
+.bottom-items .navigation-item-title {
+    @apply place-content-center text-center;
 }
 .navigation-item.active {
     @apply text-yellow-500;

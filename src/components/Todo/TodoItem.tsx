@@ -1,7 +1,7 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {deleteTodo, completeTodo} from "../redux/actionCreators/todosActions";
-import {ITodo} from "../interfaces/todo";
+import {deleteTodo, completeTodo} from "../../redux/actionCreators/todosActions";
+import {ITodo} from "../../interfaces/todo";
 
 declare var confirm: (question: string) => boolean;
 
