@@ -29,8 +29,8 @@ const TodoItem: React.FC<TodoItemProps> = ({todo}) => {
 
   return (
     <div className={`todo-list-item ${todo.completed ? "completed" : "" }`}>
-      <input type="checkbox"  checked={todo.completed} onChange={changeHandler} />
-      <h5>{todo.title}</h5>
+      <input type="checkbox" data-testid={"status-checkbox"}  checked={todo.completed} onChange={changeHandler} />
+      <h5 role={"contentinfo"}>{todo.title}</h5>
       <button className={"todo-list-item-button"} onClick={deleteHandler}>
         <i className={"fas fa-times"}></i>
       </button>
