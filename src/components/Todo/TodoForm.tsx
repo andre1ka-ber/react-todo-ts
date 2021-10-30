@@ -10,7 +10,8 @@ const TodoForm: React.FC = () => {
       setTodoTitle(prevTitle => event.target.value)
     }
 
-    const clickHandler = (event: React.MouseEvent) => {
+    const clickHandler = (event: React.FormEvent) => {
+      event.preventDefault();
       if (!todoTitle) {
         return;
       }
@@ -19,13 +20,13 @@ const TodoForm: React.FC = () => {
     }
 
     return (
-        <div className={"todo-input-wrapper"}>
+        <form className={"todo-input-wrapper"} onSubmit={clickHandler}>
             <h3 className={"label-md"}>Добавить новую задачу</h3>
             <div className={"todo-input-form"}>
                 <input type="text" placeholder={"Название задачи"} onChange={changeHandler} value={todoTitle}/>
-                <button onClick={clickHandler}>Добавить</button>
+                <button type={"submit"}>Добавить</button>
             </div>
-        </div>
+        </form>
     )
 };
 

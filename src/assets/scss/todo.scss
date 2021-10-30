@@ -63,8 +63,8 @@
   @apply line-through;
 }
 .todo-list-item-button {
-  @apply w-8 p-1 rounded shadow-sm transition-all duration-300 bg-gray-100 ml-auto;
-  @apply text-red-500 hover:text-white hover:bg-red-500;
+  @apply w-8 p-1 rounded shadow-sm transition-all duration-300 bg-gray-100 dark:bg-gray-500 ml-auto;
+  @apply text-red-500 dark:text-gray-100 hover:text-white hover:bg-red-500;
 }
 .todo-status i {
   @apply mr-1;

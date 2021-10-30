@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {deleteTodo, completeTodo} from "../../redux/actionCreators/todosActions";
+import {deleteTodo, completeTodo, returnCompletedTodo} from "../../redux/actionCreators/todosActions";
 import {ITodo} from "../../interfaces/todo";
 
 declare var confirm: (question: string) => boolean;
@@ -19,7 +19,12 @@ const TodoItem: React.FC<TodoItemProps> = ({todo}) => {
   }
 
   const changeHandler = () => {
-    dispatcher(completeTodo(todo.id))
+    if (!todo.completed) {
+      dispatcher(completeTodo(todo.id))
+      return;
+    }
+
+    dispatcher(returnCompletedTodo(todo.id))
   }
 
   return (

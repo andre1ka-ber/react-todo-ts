@@ -27,12 +27,13 @@ export const todosReducer = createReducer(initialState, (builder) => {
     .addCase(returnCompletedTodo, (state, action) => {
       state.completed = state.completed.filter(todo => {
         if (todo.id === action.payload.id) {
-          todo.completed = true
+          todo.completed = false
           state.todos.push(todo);
           return false
         }
         return true;
       })
+      toast("Бывает! И с этим справитесь!)")
     })
     .addCase(deleteTodo, (state, action) => {
       state.todos = state.todos.filter(todo => todo.id !== action.payload.id)
