@@ -25,6 +25,7 @@
     "react-router-dom": "^5.3.0",
     "react-saga": "^0.3.1",
     "react-scripts": "4.0.3",
+    "react-toastify": "^8.0.3",
     "react-transition-group": "1.x",
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",

@@ -1,6 +1,7 @@
 import {TodosState} from "../../interfaces/todo";
 import {createReducer} from "@reduxjs/toolkit";
 import {addTodo, completeTodo, deleteTodo, returnCompletedTodo} from "../actionCreators/todosActions";
+import {toast} from "react-toastify";
 
 const initialState: TodosState = {
   todos: [],
@@ -21,6 +22,7 @@ export const todosReducer = createReducer(initialState, (builder) => {
         }
         return true;
       })
+      toast("Вы молодец!");
     })
     .addCase(returnCompletedTodo, (state, action) => {
       state.completed = state.completed.filter(todo => {

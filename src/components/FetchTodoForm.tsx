@@ -4,6 +4,12 @@ import {fetchTodos} from "../redux/actionCreators/todosActions";
 import {useDispatch} from "react-redux";
 import {IFetchTodoForm} from "../interfaces/fetchTodo";
 
+const usersElements: React.ReactNode[] = [];
+
+for (let i = 1; i <= 10; i++) {
+  usersElements.push(<option value={i} key={i}>{i}</option>)
+}
+
 const FetchTodoForm: React.FC = () => {
   const dispatcher = useDispatch();
 
@@ -41,7 +47,7 @@ const FetchTodoForm: React.FC = () => {
         <label htmlFor="todo-user">Пользователь №</label>
         <select name="userId" id="todo-user" className={"input-select"} onChange={inputChangeHandler}>
           <option value="0">Не важно</option>
-          <option value="1">1</option>
+          {usersElements}
         </select>
       </div>
       <div className={"input-field"}>

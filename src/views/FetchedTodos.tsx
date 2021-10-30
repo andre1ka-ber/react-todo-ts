@@ -1,9 +1,9 @@
 import React from "react";
 import {useSelector} from "react-redux";
 import {fetchedTodosItems, fetchingLoading} from "../redux/selectors/todosSelectors";
-import TodoStatus from "../components/Todo/TodoStatus";
 import FetchTodoForm from "../components/FetchTodoForm";
 import Loader from "../components/Loader";
+import FetchedTodoItem from "../components/FetchedTodoItem";
 
 const FetchedTodos: React.FC = () => {
   const fetchedTodos = useSelector(fetchedTodosItems);
@@ -25,16 +25,7 @@ const FetchedTodos: React.FC = () => {
             {loading
               ? <Loader />
               : fetchedTodos.map(todo =>
-                <div className={"fetched-item"} key={todo.id}>
-                  <div className={"fetched-item-content"}>
-                    <h4>{todo.title}</h4>
-                    <TodoStatus status={todo.completed} />
-                  </div>
-                  <button>
-                    <span>Подробнее</span>
-                    <i className={"fas fa-address-card"}></i>
-                  </button>
-                </div>
+                <FetchedTodoItem todo={todo} key={todo.id}/>
               )
             }
           </div>

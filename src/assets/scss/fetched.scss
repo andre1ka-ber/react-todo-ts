@@ -8,7 +8,7 @@
   @apply text-base text-right;
 }
 .fetched-item button {
-  @apply text-gray-600 text-2xl w-auto ml-auto flex items-center outline-none;
+  @apply text-gray-600 dark:text-gray-100 mt-4 text-2xl w-auto ml-auto flex items-center outline-none;
 }
 .fetched-item button span {
   @apply text-base mr-2;
@@ -35,4 +35,10 @@
   @screen md {
     @apply flex-row;
   }
+}
+.user-card {
+  @apply text-yellow-500;
+}
+.user-card span {
+  @apply dark:text-gray-100 text-gray-700;
 }

@@ -13,7 +13,6 @@
 }
 .scrollbar-styles {
   @apply scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-yellow-500 scrollbar-thumb-rounded-full scrollbar-track-rounded-full;
-  //@apply dark:scrollbar-track-gray-700
 }
 .input-checkbox {
   @apply appearance-none h-6 w-6 border border-gray-300 rounded-md;

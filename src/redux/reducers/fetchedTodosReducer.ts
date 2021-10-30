@@ -4,12 +4,12 @@ import {hideFetchingLoader, setFetchedTodos, showFetchingLoader} from "../action
 
 interface FetchedTodosReducer {
   todos: IFetchedTodo[],
-  loading: boolean
+  loading: boolean,
 }
 
 const initialState: FetchedTodosReducer = {
   todos: [],
-  loading: false
+  loading: false,
 }
 
 export const fetchedTodosReducer = createReducer(initialState, (builder) => {
