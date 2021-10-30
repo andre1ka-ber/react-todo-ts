@@ -1,34 +1,34 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import TodoStatus from "./Todo/TodoStatus";
-import {IFetchedTodo} from "../interfaces/todo";
-import {useDispatch} from "react-redux";
-import {fetchTodoUser} from "../redux/actionCreators/fetchTodosActions";
-import {displayModal} from "../redux/actionCreators/appActions";
+import { IFetchedTodo } from "../interfaces/todo";
+import { fetchTodoUser } from "../redux/actionCreators/fetchTodosActions";
+import { displayModal } from "../redux/actionCreators/appActions";
 
 interface FetchedTodoItemProps {
-  todo: IFetchedTodo
+  todo: IFetchedTodo;
 }
 
-const FetchedTodoItem: React.FC<FetchedTodoItemProps> = ({todo}) => {
+const FetchedTodoItem: React.FC<FetchedTodoItemProps> = ({ todo }) => {
   const dispatcher = useDispatch();
 
   const clickHandler = () => {
     dispatcher(displayModal());
     dispatcher(fetchTodoUser(todo.userId));
-  }
+  };
 
   return (
-    <div className={"fetched-item"} key={todo.id}>
-      <div className={"fetched-item-content"}>
+    <div className="fetched-item" key={todo.id}>
+      <div className="fetched-item-content">
         <h4>{todo.title}</h4>
         <TodoStatus status={todo.completed} />
       </div>
-      <button onClick={clickHandler}>
+      <button type="button" onClick={clickHandler}>
         <span>Подробнее</span>
-        <i className={"fas fa-address-card"}></i>
+        <i className="fas fa-address-card" />
       </button>
     </div>
-  )
-}
+  );
+};
 
 export default FetchedTodoItem;

@@ -1,5 +1,5 @@
 import React from "react";
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 interface NavigationItemProps {
   title: string;
@@ -9,22 +9,39 @@ interface NavigationItemProps {
   onClick?(): void;
 }
 
-const NavigationItem: React.FC<NavigationItemProps> = ({children, icon, path, title, classString, onClick}) => {
+const NavigationItem: React.FC<NavigationItemProps> = ({
+  children,
+  icon,
+  path,
+  title,
+  classString,
+  onClick,
+}) => {
   const location = useLocation();
 
   return (
-    <div className={`navigation-item ${location.pathname === path ? "active" : ""} ${classString}`} onClick={onClick}>
-      <div className={"navigation-item-icon"}>
-        {icon
-          ? <i className={icon}></i>
-          : children
-        }
+    <div
+      role="presentation"
+      className={`navigation-item ${
+        location.pathname === path ? "active" : ""
+      } ${classString}`}
+      onClick={onClick}
+    >
+      <div className="navigation-item-icon">
+        {icon ? <i className={icon} /> : children}
       </div>
-      <div className={"navigation-item-title"}>
-        {title}
-      </div>
+      <div className="navigation-item-title">{title}</div>
     </div>
-  )
+  );
+};
+
+NavigationItem.defaultProps = {
+  icon: "",
+  path: "",
+  classString: "",
+  onClick() {
+    return null;
+  },
 };
 
 export default NavigationItem;

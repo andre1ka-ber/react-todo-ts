@@ -5,20 +5,29 @@ import NavigationItem from "./NavigationItem";
 import ThemeChanger from "./ThemeChanger";
 
 const NavigationList: React.FC = () => (
-  <div className={"navigation"}>
-    {navigationLinks.map((item, index) => (
+  <div className="navigation">
+    {navigationLinks.map((item) => (
       <NavLink to={item.path} key={item.icon}>
         <NavigationItem icon={item.icon} title={item.title} path={item.path} />
       </NavLink>
     ))}
 
-    <div className={"bottom-items"}>
+    <div className="bottom-items">
       <ThemeChanger />
-      <NavigationItem title={"Made with ReactJS + TypeScript"} classString={"about-me-item"}>
-        <img src={"logo192.png"} height={32} width={32} alt={"react-logo"} className={"spin-logo"}/>
+      <NavigationItem
+        title="Made with ReactJS + TypeScript"
+        classString="about-me-item"
+      >
+        <img
+          src="logo192.png"
+          height={32}
+          width={32}
+          alt="react-logo"
+          className="spin-logo"
+        />
       </NavigationItem>
     </div>
   </div>
-)
+);
 
 export default NavigationList;

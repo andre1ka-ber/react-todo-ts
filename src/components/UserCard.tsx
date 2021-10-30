@@ -1,12 +1,12 @@
 import React from "react";
-import {IUser} from "../interfaces/user";
+import { IUser } from "../interfaces/user";
 
 interface UserCardProps {
-  userData: IUser
+  userData: IUser;
 }
 
-const UserCard: React.FC<UserCardProps> = ({userData}) => (
-  <div className={"user-card"}>
+const UserCard: React.FC<UserCardProps> = ({ userData }) => (
+  <div className="user-card">
     <div>
       <span>Имя пользователя:&nbsp;</span>
       {userData.username}
@@ -20,6 +20,6 @@ const UserCard: React.FC<UserCardProps> = ({userData}) => (
       {userData.email}
     </div>
   </div>
-)
+);
 
 export default UserCard;

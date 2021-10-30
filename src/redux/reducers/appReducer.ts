@@ -1,13 +1,14 @@
-import {createReducer} from "@reduxjs/toolkit";
+import { createReducer } from "@reduxjs/toolkit";
 import {
-  changeAppTheme, disableModalLoading,
+  changeAppTheme,
+  disableModalLoading,
   displayModal,
   enableModalLoading,
   hideModal,
-  setModalContent
+  setModalContent,
 } from "../actionCreators/appActions";
 
-type ThemeTypes = "light" | "dark"
+type ThemeTypes = "light" | "dark";
 
 interface AppReducerState {
   theme: ThemeTypes;
@@ -15,22 +16,26 @@ interface AppReducerState {
     shouldDisplay: boolean;
     content: any;
     loading: boolean;
-  }
+  };
 }
 
 const initialState: AppReducerState = {
-  theme: localStorage.getItem("app-theme") as ThemeTypes ?? "light",
+  theme: (localStorage.getItem("app-theme") as ThemeTypes) ?? "light",
   modal: {
     shouldDisplay: false,
     content: "",
-    loading: false
-  }
-}
+    loading: false,
+  },
+};
 
 export const appReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(changeAppTheme, (state) => {
-      state.theme === "light" ? state.theme = "dark" : state.theme = "light";
+      if (state.theme === "light") {
+        state.theme = "dark";
+      } else {
+        state.theme = "light";
+      }
       localStorage.setItem("app-theme", state.theme);
     })
     .addCase(displayModal, (state) => {
@@ -47,5 +52,5 @@ export const appReducer = createReducer(initialState, (builder) => {
     })
     .addCase(disableModalLoading, (state) => {
       state.modal.loading = false;
-    })
-})
+    });
+});

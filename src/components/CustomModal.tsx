@@ -1,33 +1,35 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {modalContent, modalLoading} from "../redux/selectors/appSelectors";
+import { useDispatch, useSelector } from "react-redux";
+import { modalContent, modalLoading } from "../redux/selectors/appSelectors";
 import UserCard from "./UserCard";
-import {hideModal} from "../redux/actionCreators/appActions";
+import { hideModal } from "../redux/actionCreators/appActions";
 import Loader from "./Loader";
 
 const CustomModal: React.FC = () => {
   const dispatcher = useDispatch();
   const content = useSelector(modalContent);
-  const isLoading = useSelector(modalLoading)
+  const isLoading = useSelector(modalLoading);
 
-  const clickHandler = (event: React.MouseEvent<HTMLElement>) => {
-    event.stopPropagation()
+  const clickHandler = (event: React.SyntheticEvent<HTMLElement>) => {
+    event.stopPropagation();
     const target = event.target as HTMLElement;
     if (target.className === "modal-window") {
       dispatcher(hideModal());
     }
-  }
+  };
 
   return (
-    <div className={"modal-window"} onClick={clickHandler}>
-      <div className={"modal-wrapper"} id="modalWindow">
-        {isLoading
-          ? <Loader />
-          : <UserCard userData={content} />
-        }
+    <div
+      role="presentation"
+      className="modal-window"
+      onClick={clickHandler}
+      onKeyUp={clickHandler}
+    >
+      <div className="modal-wrapper" id="modalWindow">
+        {isLoading ? <Loader /> : <UserCard userData={content} />}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default CustomModal;

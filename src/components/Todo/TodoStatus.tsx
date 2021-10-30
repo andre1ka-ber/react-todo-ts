@@ -1,7 +1,7 @@
-import React from "react"
+import React from "react";
 
 interface TodoStatusProps {
-  status: boolean
+  status: boolean;
 }
 
 const TodoStatus: React.FC<TodoStatusProps> = ({ status }) => {
@@ -11,10 +11,10 @@ const TodoStatus: React.FC<TodoStatusProps> = ({ status }) => {
 
   return (
     <span className={`todo-status ${statusColor}`}>
-      <i className={statusIcon}></i>
+      <i className={statusIcon} />
       {statusText}
     </span>
-  )
-}
+  );
+};
 
 export default TodoStatus;

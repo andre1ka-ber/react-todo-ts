@@ -1,29 +1,33 @@
-import React, {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {changeAppTheme} from "../../redux/actionCreators/appActions";
-import {appTheme} from "../../redux/selectors/appSelectors";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeAppTheme } from "../../redux/actionCreators/appActions";
+import { appTheme } from "../../redux/selectors/appSelectors";
 import NavigationItem from "./NavigationItem";
 
 const ThemeChanger: React.FC = () => {
   const dispatcher = useDispatch();
-  const currentTheme = useSelector(appTheme)
+  const currentTheme = useSelector(appTheme);
   const [themeIcon, setThemeIcon] = useState("");
 
   useEffect(() => {
     if (currentTheme === "light") {
-      setThemeIcon("fas fa-sun")
+      setThemeIcon("fas fa-sun");
     } else {
-      setThemeIcon("fas fa-moon")
+      setThemeIcon("fas fa-moon");
     }
-  }, [currentTheme])
+  }, [currentTheme]);
 
   const changeTheme = () => {
-    dispatcher(changeAppTheme())
-  }
+    dispatcher(changeAppTheme());
+  };
 
   return (
-    <NavigationItem icon={themeIcon} title={"Изменить тему"} onClick={changeTheme}/>
-  )
-}
+    <NavigationItem
+      icon={themeIcon}
+      title="Изменить тему"
+      onClick={changeTheme}
+    />
+  );
+};
 
 export default ThemeChanger;
