@@ -22,6 +22,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "linebreak-style": ["error", "windows"],
         "no-use-before-define": "off",
         "quotes": [2, "double", { "avoidEscape": true }],
         "@typescript-eslint/no-use-before-define": ["error"],
