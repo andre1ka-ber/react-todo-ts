@@ -24,6 +24,7 @@
     "rules": {
         "@typescript-eslint/no-use-before-define": ["error"],
         "@typescript-eslint/no-shadow": ["error"],
+        "linebreak-style": 0,
         "no-use-before-define": "off",
         "quotes": [2, "double", { "avoidEscape": true }],
         "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
