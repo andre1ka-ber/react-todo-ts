@@ -33,9 +33,10 @@ export const appReducer = createReducer(initialState, (builder) => {
     .addCase(changeAppTheme, (state) => {
       if (state.theme === "light") {
         state.theme = "dark";
-      } else {
-        state.theme = "light";
+        localStorage.setItem("app-theme", state.theme);
+        return;
       }
+      state.theme = "light";
       localStorage.setItem("app-theme", state.theme);
     })
     .addCase(displayModal, (state) => {

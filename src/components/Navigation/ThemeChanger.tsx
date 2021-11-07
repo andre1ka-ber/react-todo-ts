@@ -12,9 +12,9 @@ const ThemeChanger: React.FC = () => {
   useEffect(() => {
     if (currentTheme === "light") {
       setThemeIcon("fas fa-sun");
-    } else {
-      setThemeIcon("fas fa-moon");
+      return;
     }
+    setThemeIcon("fas fa-moon");
   }, [currentTheme]);
 
   const changeTheme = () => {

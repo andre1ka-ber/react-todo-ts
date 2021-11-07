@@ -10,6 +10,8 @@ const middlewares = [sagaMiddleware];
 const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
+    // eslint-ignore
+    // eslint-disable-next-line implicit-arrow-linebreak
     getDefaultMiddleware({ thunk: false }).concat(middlewares),
 });
 
