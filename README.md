@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# React ToDo App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created for learning React, Redux, Redux-Saga.
+Demo: https://andre1ka-ber.github.io/react-todo/
 
 ## Available Scripts
 
